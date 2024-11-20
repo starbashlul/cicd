@@ -28,3 +28,17 @@ jobs:
 
     - name: Run tests
       run: mvn test
+
+    - name: Auto-merge PR
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const pull_request = context.payload.pull_request;
+          if (pull_request && pull_request.mergeable) {
+            await github.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pull_request.number,
+            });
+          }      
+      
