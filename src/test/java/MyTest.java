@@ -8,4 +8,9 @@ public class MyTest {
         Assertions.assertEquals(1, 1);
     }
 
+    @Test
+    public void shouldReturnNull2() {
+        Assertions.assertEquals(2, 2);
+    }
+
 }
