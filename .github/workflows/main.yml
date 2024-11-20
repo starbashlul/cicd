@@ -27,3 +27,8 @@ jobs:
 
     - name: Run tests
       run: mvn test
+
+    - name: Generate Javadoc
+      run: |
+        mkdir -p docs
+        javadoc -d docs -sourcepath src/main/java -subpackages com.example
