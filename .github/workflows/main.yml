@@ -32,3 +32,9 @@ jobs:
       run: |
         mkdir -p docs
         javadoc -d docs $(find src/main -name "*.java")
+
+    - name: Upload Javadoc Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: javadoc
+        path: docs/
