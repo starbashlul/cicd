@@ -40,7 +40,7 @@ jobs:
           script: |
             const pull_request = context.payload.pull_request;
             console.log("PR Context:", pull_request);
-            if (pull_request && pull_request.mergeable) {
+            if (pull_request) {
               console.log("Merging PR:", pull_request.number);
               await github.pulls.merge({
                 owner: context.repo.owner,
