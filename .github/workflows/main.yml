@@ -31,4 +31,4 @@ jobs:
     - name: Generate Javadoc
       run: |
         mkdir -p docs
-        javadoc -d docs -sourcepath src/main/java
+        javadoc -d docs
