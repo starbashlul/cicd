@@ -39,10 +39,14 @@ jobs:
         with:
           script: |
             const pull_request = context.payload.pull_request;
+            console.log("PR Context:", pull_request);
             if (pull_request && pull_request.mergeable) {
+              console.log("Merging PR:", pull_request.number);
               await github.pulls.merge({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 pull_number: pull_request.number,
               });
+            } else {
+              console.log("PR is not mergeable or undefined");
             }
